@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 20.0f;
-    private float turnSpeed = 45.0f;
+    private bool moving = false;
+    private bool OnGround = false;
+    [SerializeField] private float speed = 20.0f;
+    [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
     private float forwardInput;
 
@@ -18,12 +20,62 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Checks for inputs
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
-        // Moves the vehicle forward based on inputs
+        // Changes position based on input
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        // Moves the vehicle horizontaly based on inputs
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+
+        // Checks if vehicle is moving
+        IsMoving();
+        // Checks if vehicle is on ground
+        IsOnGround();
+    }
+
+    void IsMoving()
+    {
+        if (forwardInput == 0)
+        {
+            moving = false;
+        }
+        else
+        {
+            moving = true;
+        }
+        if (moving == true)
+        {
+            turnSpeed = 45.0f;
+        }
+        if (moving == false)
+        {
+            turnSpeed = 0.0f;
+        }
+    }
+
+    void IsOnGround()
+    {
+        if(OnGround == false)
+        {
+            
+        }
+        else
+        {
+            horizontalInput = Input.GetAxis("Horizontal");
+            forwardInput = Input.GetAxis("Vertical");
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            OnGround = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            OnGround = false;
+        }
     }
 }
