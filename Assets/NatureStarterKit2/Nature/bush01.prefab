@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2398136}
   m_Layer: 0
   m_Name: bush01
-  m_TagString: Untagged
+  m_TagString: Renderable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
