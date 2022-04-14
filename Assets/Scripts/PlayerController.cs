@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public int coinCount = 0;
     public GameObject Camera;
+    private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
     [SerializeField] private float speed = 20.0f;
@@ -22,9 +23,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Changes position based on input
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameStart = true;
+        }
+        if (gameStart == false)
+        {
+
+        }
+        if (gameStart == true)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+            Camera.gameObject.SetActive(false);
+        }
 
         // Checks if vehicle is moving
         IsMoving();
@@ -43,7 +55,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             moving = true;
-            Camera.gameObject.SetActive(false);
         }
         if (moving == true)
         {
