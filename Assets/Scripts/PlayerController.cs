@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int coinCount = 0;
+    public GameObject Camera;
     private bool moving = false;
     private bool OnGround = false;
     [SerializeField] private float speed = 20.0f;
@@ -26,10 +28,12 @@ public class PlayerController : MonoBehaviour
 
         // Checks if vehicle is moving
         IsMoving();
+
         // Checks if vehicle is on ground
         IsOnGround();
     }
 
+    // Checks if vehicle is moving
     void IsMoving()
     {
         if (forwardInput == 0)
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             moving = true;
+            Camera.gameObject.SetActive(false);
         }
         if (moving == true)
         {
@@ -50,6 +55,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Checks if vehicle is on the ground
     void IsOnGround()
     {
         if(OnGround == false)
@@ -68,6 +74,11 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             OnGround = true;
+        }
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            coinCount++;
+            other.gameObject.SetActive(false);
         }
     }
 
