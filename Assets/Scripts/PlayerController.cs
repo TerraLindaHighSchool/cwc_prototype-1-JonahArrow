@@ -82,22 +82,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            OnGround = true;
-        }
         if (other.gameObject.CompareTag("Coin"))
         {
             coinCount++;
             other.gameObject.SetActive(false);
         }
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            OnGround = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            OnGround = false;
-        }
+        OnGround = false;
     }
 }
