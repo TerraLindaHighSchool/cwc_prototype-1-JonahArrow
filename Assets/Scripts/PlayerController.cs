@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
+    [SerializeField] private bool Button1 = false;
+    [SerializeField] private bool Button2 = false;
+    [SerializeField] private bool Button3 = false;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
@@ -17,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
             Camera.gameObject.SetActive(false);
         }
+
+        NextLevel();
 
         // Checks if vehicle is moving
         IsMoving();
@@ -69,9 +75,9 @@ public class PlayerController : MonoBehaviour
     // Checks if vehicle is on the ground
     void IsOnGround()
     {
-        if(OnGround == false)
+        if (OnGround == false)
         {
-            
+
         }
         else
         {
@@ -96,5 +102,42 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         OnGround = false;
+    }
+
+    public void NextLevel()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            Button1 = true;
+        }
+        else
+        {
+            Button1 = false;
+        }
+        if (Input.GetKey(KeyCode.Z))
+        {
+            Button2 = true;
+        }
+        else
+        {
+            Button2 = false;
+        }
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            Button3 = true;
+        }
+        else
+        {
+            Button3 = false;
+        }
+        if (Button1 && Button2 && Button3)
+        {
+            loadlevel("RaceTrack");
+        }
+    }
+
+    public void loadlevel(string level)
+    {
+        SceneManager.LoadScene(level);
     }
 }
