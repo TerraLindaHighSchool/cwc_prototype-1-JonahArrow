@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             Button2 = false;
         }
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.U))
         {
             Button3 = true;
         }
