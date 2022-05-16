@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Detects imput "Space" to start game
         if (Input.GetKeyDown(KeyCode.Space))
         {
             gameStart = true;
@@ -37,11 +38,13 @@ public class PlayerController : MonoBehaviour
         }
         if (gameStart == true)
         {
+            // Movement transforms of player
             transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
             transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
             Camera.gameObject.SetActive(false);
         }
 
+        // Takes player to next level
         NextLevel();
 
         // Checks if vehicle is moving
@@ -86,6 +89,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Checks colliders for interactions
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
