@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public int coinCount = 0;
     public GameObject Camera;
+    public TextMeshProUGUI ending1;
+    public TextMeshProUGUI ending2;
     private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
     private bool Trigger = false;
     private bool Trigger2 = false;
+    private bool Trigger3 = false;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
     private float forwardInput;
-    private int Count;
-    private int Count2;
+    public int Count;
+    public int Count2;
+    public int Count3;
     private bool Fall1 = true;
     private bool Fall2 = false;
     private bool Fall3 = false;
@@ -57,6 +62,12 @@ public class PlayerController : MonoBehaviour
 
         // Checks if vehicle is on ground
         IsOnGround();
+
+        // Checks for falling off the map
+        MapFall();
+
+        // Checks for trigger for ending 1
+        Ending1();
     }
 
     // Checks if vehicle is moving
@@ -94,25 +105,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Checks colliders for interactions
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
         {
             coinCount++;
             other.gameObject.SetActive(false);
         }
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            OnGround = true;
-        }
-        if (other.gameObject.CompareTag("Trigger")) 
+        if (other.gameObject.CompareTag("Trigger"))
         {
             Trigger = true;
         }
         if (other.gameObject.CompareTag("Trigger2"))
         {
             Trigger2 = true;
+        }
+        if (other.gameObject.CompareTag("Trigger3"))
+        {
+            Trigger3 = true;
+        }
+    }
+
+    // Checks colliders for interactions
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            OnGround = true;
         }
     }
 
@@ -123,29 +142,39 @@ public class PlayerController : MonoBehaviour
 
     private void MapFall() 
     {
-        if(Trigger == true) 
+        if(Trigger && Fall1 == true) 
         {
-            if(Fall1 == true) 
+            Count++;
+            if(Count == 100)
             {
-                Count++;
-                if(Count == 100)
-                {
-                    Fall1 = false;
-                    Fall2 = true;
-                }
+                Trigger = false;
+                gameObject.transform.position = new Vector3(0, 1, 0);
+                Fall1 = false;
+                Fall2 = true;
+                Count = 0;
             }
-            if(Fall2 == true)
+            
+        }
+        if(Trigger && Fall2 == true)
+        {
+            Count2++;
+            if(Count2 == 200)
             {
-                Count2++;
-                if(Count == 200)
-                {
-                    Fall2 = false;
-                    Fall3 = true;
-                }
+                Trigger = false;
+                gameObject.transform.position = new Vector3(0, 1, 0);
+                Fall2 = false;
+                Fall3 = true;
+                Count2 = 0;
             }
-            if(Fall3 == true)
+        }
+        if (Trigger && Fall3 == true)
+        {
+            Count3++;
+            if (Count3 == 200)
             {
-
+                Trigger = false;
+                ending2.gameObject.SetActive(true);
+                Count3 = 0;
             }
         }
     }
@@ -155,6 +184,14 @@ public class PlayerController : MonoBehaviour
         if (Trigger2 == true)
         {
             loadlevel("RaceTrack");
+        }
+    }
+
+    private void Ending1()
+    {
+        if (Trigger3 == true)
+        {
+            ending1.gameObject.SetActive(true);
         }
     }
 
