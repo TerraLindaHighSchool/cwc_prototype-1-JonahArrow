@@ -9,6 +9,8 @@ TagManager:
   - Renderable
   - Coin
   - Trigger
+  - Trigger1
+  - Trigger2
   layers:
   - Default
   - TransparentFX
