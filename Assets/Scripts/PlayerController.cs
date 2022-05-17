@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,13 +11,17 @@ public class PlayerController : MonoBehaviour
     private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
-    [SerializeField] private bool Button1 = false;
-    [SerializeField] private bool Button2 = false;
-    [SerializeField] private bool Button3 = false;
+    private bool Trigger = false;
+    private bool Trigger2 = false;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
     private float forwardInput;
+    private int Count;
+    private int Count2;
+    private bool Fall1 = true;
+    private bool Fall2 = false;
+    private bool Fall3 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +106,14 @@ public class PlayerController : MonoBehaviour
         {
             OnGround = true;
         }
+        if (other.gameObject.CompareTag("Trigger")) 
+        {
+            Trigger = true;
+        }
+        if (other.gameObject.CompareTag("Trigger2"))
+        {
+            Trigger2 = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -108,33 +121,38 @@ public class PlayerController : MonoBehaviour
         OnGround = false;
     }
 
+    private void MapFall() 
+    {
+        if(Trigger == true) 
+        {
+            if(Fall1 == true) 
+            {
+                Count++;
+                if(Count == 100)
+                {
+                    Fall1 = false;
+                    Fall2 = true;
+                }
+            }
+            if(Fall2 == true)
+            {
+                Count2++;
+                if(Count == 200)
+                {
+                    Fall2 = false;
+                    Fall3 = true;
+                }
+            }
+            if(Fall3 == true)
+            {
+
+            }
+        }
+    }
+
     public void NextLevel()
     {
-        if (Input.GetKey(KeyCode.P))
-        {
-            Button1 = true;
-        }
-        else
-        {
-            Button1 = false;
-        }
-        if (Input.GetKey(KeyCode.Z))
-        {
-            Button2 = true;
-        }
-        else
-        {
-            Button2 = false;
-        }
-        if (Input.GetKey(KeyCode.U))
-        {
-            Button3 = true;
-        }
-        else
-        {
-            Button3 = false;
-        }
-        if (Button1 && Button2 && Button3)
+        if (Trigger2 == true)
         {
             loadlevel("RaceTrack");
         }
