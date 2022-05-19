@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour
+public class PlayerController3 : MonoBehaviour
 {
     public int coinCount = 0;
     public GameObject Camera;
     public GameObject trigger3;
     [SerializeField] private bool moving = false;
-    [SerializeField] private bool OnGround = false;
+    [SerializeField] private bool OnGround = true;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
     private float forwardInput;
-    private bool Fall1 = true;
-    private bool Fall2 = false;
-    private bool Fall3 = false;
     private bool Trigger = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
@@ -26,25 +23,18 @@ public class PlayerController2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
 
         IsMoving();
-
-        IsOnGround();
-
-        MapFall();
-
-        if (Trigger2 == true)
-        {
-            trigger3.gameObject.SetActive(true);
-        }
     }
 
     // Checks if vehicle is moving
@@ -68,20 +58,6 @@ public class PlayerController2 : MonoBehaviour
         }
     }
 
-    // Checks if vehicle is on the ground
-    void IsOnGround()
-    {
-        if (OnGround == false)
-        {
-
-        }
-        else
-        {
-            horizontalInput = Input.GetAxis("Horizontal");
-            forwardInput = Input.GetAxis("Vertical");
-        }
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
@@ -93,11 +69,6 @@ public class PlayerController2 : MonoBehaviour
         {
             OnGround = true;
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        OnGround = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -116,45 +87,5 @@ public class PlayerController2 : MonoBehaviour
         }
     }
 
-    private void MapFall()
-    {
-        if (Trigger && Fall1 == true)
-        {
-            Count++;
-            if (Count == 100)
-            {
-                Trigger = false;
-                gameObject.transform.position = new Vector3(0, 8, -10);
-                gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                Fall1 = false;
-                Fall2 = true;
-                Count = 0;
-            }
-
-        }
-        if (Trigger && Fall2 == true)
-        {
-            Count2++;
-            if (Count2 == 200)
-            {
-                Trigger = false;
-                gameObject.transform.position = new Vector3(0, 8, -10);
-                gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                Fall2 = false;
-                Fall3 = true;
-                Count2 = 0;
-            }
-        }
-        if (Trigger && Fall3 == true)
-        {
-            Count3++;
-            if (Count3 == 200)
-            {
-                Trigger = false;
-                gameObject.transform.position = new Vector3(0, 8, -10);
-                gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                Count3 = 0;
-            }
-        }
-    }
+    
 }
