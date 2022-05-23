@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController2 : MonoBehaviour
@@ -41,10 +42,23 @@ public class PlayerController2 : MonoBehaviour
 
         MapFall();
 
+        NextLevel();
+
         if (Trigger2 == true)
         {
             trigger3.gameObject.SetActive(true);
         }
+    }
+    public void NextLevel()
+    {
+        if (Trigger3 == true)
+        {
+            loadlevel("Choice");
+        }
+    }
+    public void loadlevel(string level)
+    {
+        SceneManager.LoadScene(level);
     }
 
     // Checks if vehicle is moving

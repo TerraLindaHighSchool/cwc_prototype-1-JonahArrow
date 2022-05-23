@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController3 : MonoBehaviour
@@ -34,7 +35,27 @@ public class PlayerController3 : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
 
+        if(Trigger == true)
+        {
+
+        }
+
         IsMoving();
+
+        NextLevel();
+    }
+
+    public void NextLevel()
+    {
+        if (Trigger == true)
+        {
+            loadlevel("Choice");
+        }
+    }
+
+    public void loadlevel(string level)
+    {
+        SceneManager.LoadScene(level);
     }
 
     // Checks if vehicle is moving
