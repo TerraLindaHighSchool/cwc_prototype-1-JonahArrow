@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController3 : MonoBehaviour
 {
     public int coinCount = 0;
+    public TextMeshProUGUI ending3;
+    public GameObject Player;
     public GameObject Camera;
     public GameObject trigger3;
+    public GameObject Door;
     [SerializeField] private bool moving = false;
     [SerializeField] private bool OnGround = true;
     [SerializeField] private float speed = 20.0f;
@@ -35,9 +40,23 @@ public class PlayerController3 : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
 
-        if(Trigger == true)
+        if(Trigger2 == true)
         {
+            Player.gameObject.transform.position = new Vector3(1000, 0, 0);
+            Camera.gameObject.transform.rotation = new Quaternion(0, 90, 0, 0);
+            Count++;
+            // Audio goes here
+        }
 
+        if(Trigger3 == true)
+        {
+            trigger3.gameObject.SetActive(false);
+            Door.gameObject.SetActive(true);
+        }
+
+        if(Count == 1000)
+        {
+            ending3.gameObject.SetActive(true);
         }
 
         IsMoving();
@@ -49,7 +68,7 @@ public class PlayerController3 : MonoBehaviour
     {
         if (Trigger == true)
         {
-            loadlevel("Choice");
+            loadlevel("Ending");
         }
     }
 
