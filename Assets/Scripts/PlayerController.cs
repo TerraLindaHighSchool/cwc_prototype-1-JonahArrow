@@ -194,6 +194,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Trigger2 == true)
         {
+            
             loadlevel("RaceTrack");
         }
         

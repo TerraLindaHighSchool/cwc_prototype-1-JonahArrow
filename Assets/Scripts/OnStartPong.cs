@@ -5,6 +5,7 @@ using UnityEngine;
 public class OnStartPong : MonoBehaviour
 {
     public GameObject Pong;
+    public GameObject Thing;
     public int Count;
 
     // Start is called before the first frame update
@@ -21,9 +22,9 @@ public class OnStartPong : MonoBehaviour
         {
             Pong.gameObject.SetActive(true);
         }
-        if (Count == 51000)
+        if (Count == 6000)
         {
-            Pong.gameObject.SetActive(false);
+            Thing.gameObject.SetActive(true);
         }
     }
 }
