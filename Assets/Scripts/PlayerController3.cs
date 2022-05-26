@@ -14,7 +14,6 @@ public class PlayerController3 : MonoBehaviour
     public GameObject trigger3;
     public GameObject Door;
     [SerializeField] private bool moving = false;
-    [SerializeField] private bool OnGround = true;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
@@ -104,10 +103,6 @@ public class PlayerController3 : MonoBehaviour
         {
             coinCount++;
             other.gameObject.SetActive(false);
-        }
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            OnGround = true;
         }
     }
 

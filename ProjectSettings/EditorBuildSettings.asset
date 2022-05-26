@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 940c05718199e3f4ba4d7c8e7362a8db
+  - enabled: 1
+    path: Assets/Scenes/Pong.unity
+    guid: 8bfe0b0d1121d004e8225867f2d6e15b
   m_configObjects: {}

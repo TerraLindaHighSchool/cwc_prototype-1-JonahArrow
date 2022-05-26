@@ -18,6 +18,7 @@ public class PlayerController2 : MonoBehaviour
     private bool Fall2 = false;
     private bool Fall3 = false;
     private bool Trigger = false;
+    private bool Trigger1 = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
     public int Count;
@@ -54,6 +55,11 @@ public class PlayerController2 : MonoBehaviour
         if (Trigger3 == true)
         {
             loadlevel("Choice");
+        }
+
+        if (Trigger1 == true)
+        {
+            loadlevel("Pong");
         }
     }
     public void loadlevel(string level)
@@ -119,6 +125,10 @@ public class PlayerController2 : MonoBehaviour
         if (other.gameObject.CompareTag("Trigger"))
         {
             Trigger = true;
+        }
+        if (other.gameObject.CompareTag("Trigger1"))
+        {
+            Trigger1 = true;
         }
         if (other.gameObject.CompareTag("Trigger2"))
         {

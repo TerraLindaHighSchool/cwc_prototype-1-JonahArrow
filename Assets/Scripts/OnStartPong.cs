@@ -21,7 +21,7 @@ public class OnStartPong : MonoBehaviour
         {
             Pong.gameObject.SetActive(true);
         }
-        if (Count == 25000)
+        if (Count == 51000)
         {
             Pong.gameObject.SetActive(false);
         }

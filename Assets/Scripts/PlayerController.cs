@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     private bool moving = false;
     private bool OnGround = false;
     private bool Trigger = false;
+    private bool Trigger1 = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
-    private bool Trigger4 = false;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Trigger1"))
         {
-            Trigger4 = true;
+            Trigger1 = true;
         }
         if (other.gameObject.CompareTag("Trigger2"))
         {
@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
             loadlevel("RaceTrack");
         }
         
-        if (Trigger4 == true)
+        if (Trigger1 == true)
         {
 
         }
