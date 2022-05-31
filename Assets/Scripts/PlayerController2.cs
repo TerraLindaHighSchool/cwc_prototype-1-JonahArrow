@@ -21,9 +21,9 @@ public class PlayerController2 : MonoBehaviour
     private bool Trigger1 = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
-    public int Count;
-    public int Count2;
-    public int Count3;
+    public float Count;
+    public float Count2;
+    public float Count3;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +44,10 @@ public class PlayerController2 : MonoBehaviour
         MapFall();
 
         NextLevel();
+
+        Count -= Time.deltaTime;
+        Count2 -= Time.deltaTime;
+        Count3 -= Time.deltaTime;
 
         if (Trigger2 == true)
         {

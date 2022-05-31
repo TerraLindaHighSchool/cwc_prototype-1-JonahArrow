@@ -10,7 +10,7 @@ public class Messages : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        messageText.text = "Hello World";
+        TextWriter.AddWriter_Static(messageText, "Hello World!", .1f, true);
     }
 
     private void Awake() 

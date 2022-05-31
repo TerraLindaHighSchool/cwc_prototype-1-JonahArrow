@@ -6,7 +6,7 @@ public class OnStartPong : MonoBehaviour
 {
     public GameObject Pong;
     public GameObject Thing;
-    public int Count;
+    public float Count;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class OnStartPong : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Count -= Time.deltaTime;
         Count++;
         if (Count == 1000)
         {
