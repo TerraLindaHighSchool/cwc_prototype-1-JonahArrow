@@ -27,33 +27,33 @@ public class Messages : MonoBehaviour
             string[] messageArray = new string[]
             {
             "Hello!",
-            "aaaaaaaaaaa",
-            "Pooeeeop",
-            "Pooaaaaaaaabis"
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "Among us sus!!!1!!!!",
+            "Oppa gungam style"
             };
 
             if (pause == 5)
             {
                 string message = messageArray[0];
-                TextWriter.AddWriter_Static(messageText, message, .1f, true);
+                TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
             if (pause == 1005)
             {
                 string message = messageArray[1];
-                TextWriter.AddWriter_Static(messageText, message, .1f, true);
+                TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
             if (pause == 2005)
             {
                 string message = messageArray[2];
-                TextWriter.AddWriter_Static(messageText, message, .1f, true);
+                TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
             if (pause == 3005)
             {
                 string message = messageArray[3];
-                TextWriter.AddWriter_Static(messageText, message, .1f, true);
+                TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
             if (pause == 4005)

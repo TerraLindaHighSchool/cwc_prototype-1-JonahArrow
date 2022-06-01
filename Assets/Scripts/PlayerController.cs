@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI ending1;
     public TextMeshProUGUI ending2;
     public TextMeshProUGUI ending5;
+    public GameObject messager;
+    public GameObject messager1;
     private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             gameStart = true;
+            messager.gameObject.SetActive(true);
         }
         if (gameStart == false)
         {
@@ -59,6 +62,11 @@ public class PlayerController : MonoBehaviour
         if(coinCount == 5)
         {
             ending5.gameObject.SetActive(true);
+        }
+
+        if(Trigger1 == true)
+        {
+            messager1.gameObject.SetActive(true);
         }
 
         // Takes player to next level
@@ -196,11 +204,6 @@ public class PlayerController : MonoBehaviour
         {
             
             loadlevel("RaceTrack");
-        }
-        
-        if (Trigger1 == true)
-        {
-
         }
     }
 
