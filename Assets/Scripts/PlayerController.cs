@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
     private float forwardInput;
-    public float Count;
-    public float Count2;
-    public float Count3;
+    public int Count;
+    public int Count2;
+    public int Count3;
     private bool Fall1 = true;
     private bool Fall2 = false;
     private bool Fall3 = false;
@@ -75,10 +75,6 @@ public class PlayerController : MonoBehaviour
 
         // Checks for trigger for ending 1
         Ending1();
-
-        Count -= Time.deltaTime;
-        Count2 -= Time.deltaTime;
-        Count3 -= Time.deltaTime;
     }
 
     // Checks if vehicle is moving
@@ -160,7 +156,7 @@ public class PlayerController : MonoBehaviour
         if(Trigger && Fall1 == true) 
         {
             Count++;
-            if(Count == 100)
+            if (Count == 100)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 1, 0);
@@ -173,7 +169,7 @@ public class PlayerController : MonoBehaviour
         if(Trigger && Fall2 == true)
         {
             Count2++;
-            if(Count2 == 200)
+            if (Count2 == 200)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 1, 0);
@@ -185,7 +181,7 @@ public class PlayerController : MonoBehaviour
         if (Trigger && Fall3 == true)
         {
             Count3++;
-            if (Count3 == 200)
+            if (Count3 >= 200)
             {
                 Trigger = false;
                 ending2.gameObject.SetActive(true);
