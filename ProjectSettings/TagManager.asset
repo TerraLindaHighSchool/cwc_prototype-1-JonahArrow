@@ -13,6 +13,12 @@ TagManager:
   - Trigger2
   - Trigger3
   - Trigger4
+  - Trigger5
+  - Trigger6
+  - Trigger7
+  - Trigger8
+  - Trigger9
+  - Trigger10
   layers:
   - Default
   - TransparentFX

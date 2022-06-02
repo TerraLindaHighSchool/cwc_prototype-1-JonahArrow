@@ -7,8 +7,7 @@ public class Messages : MonoBehaviour
 {
     public GameObject Message;
     public Text messageText;
-    public bool textComplete = true;
-    public int pause;
+    [SerializeField] private int pause;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +19,24 @@ public class Messages : MonoBehaviour
     {
         messageText = transform.Find("messager").Find("Text").GetComponent<Text>();
 
-        pause++;
-
-        transform.Find("messager");
+    transform.Find("messager");
         {
-            string[] messageArray = new string[]
+            string[] messageArray = new string[4]
             {
-            "Hello!",
-            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            "Among us sus!!!1!!!!",
-            "Oppa gungam style"
+            "Ah, hello there!",
+            "You are a Player, am I correct?",
+            "I am John, the creator of this game you see before you.",
+            "Now, drive onward and enjoy the game!"
             };
+
+            if (Message.activeInHierarchy == true)
+            {
+                pause++;
+            }
+            else if (Message.activeInHierarchy == false)
+            {
+                pause = 0;
+            }
 
             if (pause == 5)
             {

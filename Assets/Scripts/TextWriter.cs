@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TextWriter : MonoBehaviour
 {
     private static TextWriter instance;
+    public AudioSource talkingAudioSource;
 
     private List<TextWriterSingle> textWriterSingleList;
 
@@ -46,6 +47,7 @@ public class TextWriter : MonoBehaviour
 
     public class TextWriterSingle
     {
+        public AudioSource talkingAudioSource;
         private Text uiText;
         private string textToWrite;
         private int characterIndex;

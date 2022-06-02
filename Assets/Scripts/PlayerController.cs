@@ -8,12 +8,16 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public int coinCount = 0;
+    public AudioSource talking;
     public GameObject Camera;
     public TextMeshProUGUI ending1;
     public TextMeshProUGUI ending2;
     public TextMeshProUGUI ending5;
     public GameObject messager;
     public GameObject messager1;
+    public GameObject messager2;
+    public GameObject messager3;
+    public GameObject messager4;
     private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
@@ -21,6 +25,9 @@ public class PlayerController : MonoBehaviour
     private bool Trigger1 = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
+    private bool Trigger4 = false;
+    private bool Trigger5 = false;
+    private bool Trigger6 = false;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
@@ -31,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private bool Fall1 = true;
     private bool Fall2 = false;
     private bool Fall3 = false;
+    private bool startMessage = true;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +53,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             gameStart = true;
-            messager.gameObject.SetActive(true);
+            if(startMessage == true)
+            {
+                talking.Play();
+                messager.gameObject.SetActive(true);
+            }
+            startMessage = false;
         }
         if (gameStart == false)
         {
@@ -66,7 +79,30 @@ public class PlayerController : MonoBehaviour
 
         if(Trigger1 == true)
         {
+            talking.Play();
             messager1.gameObject.SetActive(true);
+            Trigger1 = false;
+        }
+
+        if(Trigger4 == true)
+        {
+            talking.Play();
+            messager2.gameObject.SetActive(true);
+            Trigger4 = false;
+        }
+
+        if (Trigger5 == true)
+        {
+            talking.Play();
+            messager3.gameObject.SetActive(true);
+            Trigger5 = false;
+        }
+
+        if (Trigger6 == true)
+        {
+            talking.Play();
+            messager4.gameObject.SetActive(true);
+            Trigger6 = false;
         }
 
         // Takes player to next level
@@ -134,6 +170,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Trigger1"))
         {
             Trigger1 = true;
+            other.gameObject.SetActive(false);
         }
         if (other.gameObject.CompareTag("Trigger2"))
         {
@@ -142,6 +179,16 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Trigger3"))
         {
             Trigger3 = true;
+        }
+        if (other.gameObject.CompareTag("Trigger4"))
+        {
+            Trigger4 = true;
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Trigger5"))
+        {
+            Trigger5 = true;
+            other.gameObject.SetActive(false);
         }
     }
 
