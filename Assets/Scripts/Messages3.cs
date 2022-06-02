@@ -21,11 +21,12 @@ public class Messages3 : MonoBehaviour
 
         transform.Find("messager3");
         {
-            string[] messageArray3 = new string[3]
+            string[] messageArray3 = new string[4]
             {
-            "Player, heed my warning.",
-            "Do NOT press that button!",
-            "Please, I beg of you."
+            "Um, excuse me?",
+            "Uh, I didn't plan on anyone going backwards.",
+            "Hold on, I'll bring you back to the start.",
+            "Alright now, continue with the rest of the game."
             };
 
             if (Message3.activeInHierarchy == true)
@@ -49,13 +50,19 @@ public class Messages3 : MonoBehaviour
                 TextWriter.AddWriter_Static(messageText, message3, .05f, true);
             }
 
-            if (pause == 1506)
+            if (pause == 1756)
             {
                 string message3 = messageArray3[2];
                 TextWriter.AddWriter_Static(messageText, message3, .05f, true);
             }
 
-            if (pause == 2226)
+            if (pause == 2756)
+            {
+                string message3 = messageArray3[3];
+                TextWriter.AddWriter_Static(messageText, message3, .05f, true);
+            }
+
+            if (pause == 3756)
             {
                 Message3.gameObject.SetActive(false);
             }

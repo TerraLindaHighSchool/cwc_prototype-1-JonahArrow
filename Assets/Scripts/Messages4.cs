@@ -25,7 +25,7 @@ public class Messages4 : MonoBehaviour
             {
             "Player, heed my warning.",
             "Do NOT press that button!",
-            "Please, I beg of you."
+            "This is not supposed to be in the game!"
             };
 
             if (Message4.activeInHierarchy == true)

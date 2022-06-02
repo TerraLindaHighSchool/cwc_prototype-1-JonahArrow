@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject messager2;
     public GameObject messager3;
     public GameObject messager4;
+    public GameObject messager5;
+    public GameObject messager6;
     private bool gameStart = false;
     private bool moving = false;
     private bool OnGround = false;
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private bool Trigger4 = false;
     private bool Trigger5 = false;
     private bool Trigger6 = false;
+    private bool Trigger7 = false;
+    private bool Trigger8 = false;
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float turnSpeed = 45.0f;
     private float horizontalInput;
@@ -103,6 +107,19 @@ public class PlayerController : MonoBehaviour
             talking.Play();
             messager4.gameObject.SetActive(true);
             Trigger6 = false;
+        }
+
+        if (Trigger7 == true)
+        {
+            talking.Play();
+            messager5.gameObject.SetActive(true);
+            Trigger7 = false;
+        }
+
+        if (Trigger8 == true)
+        {
+            talking.Play();
+            Trigger8 = false;
         }
 
         // Takes player to next level
@@ -190,6 +207,24 @@ public class PlayerController : MonoBehaviour
             Trigger5 = true;
             other.gameObject.SetActive(false);
         }
+
+        if (other.gameObject.CompareTag("Trigger6"))
+        {
+            Trigger6 = true;
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Trigger7"))
+        {
+            Trigger7 = true;
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Trigger8"))
+        {
+            Trigger8 = true;
+            other.gameObject.SetActive(false);
+        }
     }
 
     // Checks colliders for interactions
@@ -211,10 +246,11 @@ public class PlayerController : MonoBehaviour
         if(Trigger && Fall1 == true) 
         {
             Count++;
-            if (Count == 100)
+            messager3.gameObject.SetActive(true);
+            if (Count == 2506)
             {
                 Trigger = false;
-                gameObject.transform.position = new Vector3(0, 1, 0);
+                gameObject.transform.position = new Vector3(0, -0.02876592f, 0);
                 Fall1 = false;
                 Fall2 = true;
                 Count = 0;
@@ -224,10 +260,11 @@ public class PlayerController : MonoBehaviour
         if(Trigger && Fall2 == true)
         {
             Count2++;
-            if (Count2 == 200)
+            messager6.gameObject.SetActive(true);
+            if (Count2 == 4006)
             {
                 Trigger = false;
-                gameObject.transform.position = new Vector3(0, 1, 0);
+                gameObject.transform.position = new Vector3(0, -0.02876592f, 0);
                 Fall2 = false;
                 Fall3 = true;
                 Count2 = 0;
