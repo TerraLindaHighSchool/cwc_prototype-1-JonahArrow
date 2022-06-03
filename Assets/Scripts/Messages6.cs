@@ -62,7 +62,7 @@ public class Messages6 : MonoBehaviour
                 TextWriter.AddWriter_Static(messageText, message6, .05f, true);
             }
 
-            if (pause == 3756)
+            if (pause >= 3754)
             {
                 Message6.gameObject.SetActive(false);
             }

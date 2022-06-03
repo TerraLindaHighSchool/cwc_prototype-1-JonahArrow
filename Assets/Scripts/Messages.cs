@@ -25,7 +25,7 @@ public class Messages : MonoBehaviour
             {
             "Ah, hello there!",
             "You are a Player, am I correct?",
-            "I am John, the creator of this game you see before you.",
+            "I am the creator of this game you see before you.",
             "Now, drive onward and enjoy the game!"
             };
 

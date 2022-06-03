@@ -36,7 +36,7 @@ public class Messages5 : MonoBehaviour
             "His desire to see his wife and daughter again, even after all these years?", // 10
             "Ooops, my bad.", // 11
             "I must have spoiled everything for you.", // 12
-            "I am so sorry, sorry that you will never experience the heartbreaking story with fresh eyes.", // 13
+            "I am so sorry, sorry that you will never experience the heartbreaking story with fresh perspective.", // 13
             "Anyways, Player, this is where you come in and fix the game for me.", // 14
             "Play through the game, tell me what I can improve, and I might consider fixing it." // 15
             };
