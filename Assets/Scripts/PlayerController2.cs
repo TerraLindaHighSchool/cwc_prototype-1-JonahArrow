@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController2 : MonoBehaviour
 {
     public int coinCount = 0;
     public GameObject Camera;
     public GameObject trigger3;
+    public GameObject messager11;
+    public GameObject messager12;
+    public GameObject messager13;
+    public GameObject messager14;
+    public GameObject messager15;
     [SerializeField] private bool moving = false;
     [SerializeField] private bool OnGround = false;
     [SerializeField] private float speed = 20.0f;
@@ -28,7 +34,7 @@ public class PlayerController2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        messager11.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -145,6 +151,7 @@ public class PlayerController2 : MonoBehaviour
         if (Trigger && Fall1 == true)
         {
             Count++;
+            messager12.gameObject.SetActive(true);
             if (Count == 100)
             {
                 Trigger = false;
