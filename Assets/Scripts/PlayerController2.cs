@@ -27,6 +27,7 @@ public class PlayerController2 : MonoBehaviour
     private bool Trigger1 = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
+    private bool CanMove = false;
     public int Count;
     public int Count2;
     public int Count3;
@@ -40,9 +41,6 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
-
         IsMoving();
 
         IsOnGround();
@@ -50,6 +48,21 @@ public class PlayerController2 : MonoBehaviour
         MapFall();
 
         NextLevel();
+
+        if(CanMove == true)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        }
+
+        if (messager11.activeInHierarchy == false)
+        {
+            CanMove = true;
+        }
+        else if (messager15.activeInHierarchy == true)
+        {
+            CanMove = false;
+        }
 
         if (Trigger2 == true)
         {
@@ -152,7 +165,7 @@ public class PlayerController2 : MonoBehaviour
         {
             Count++;
             messager12.gameObject.SetActive(true);
-            if (Count == 100)
+            if (Count == 4004)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 8, -10);
@@ -166,7 +179,8 @@ public class PlayerController2 : MonoBehaviour
         if (Trigger && Fall2 == true)
         {
             Count2++;
-            if (Count2 == 200)
+            messager13.gameObject.SetActive(true);
+            if (Count2 == 2254)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 8, -10);
@@ -179,7 +193,8 @@ public class PlayerController2 : MonoBehaviour
         if (Trigger && Fall3 == true)
         {
             Count3++;
-            if (Count3 == 200)
+            messager14.gameObject.SetActive(true);
+            if (Count3 == 754)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 8, -10);

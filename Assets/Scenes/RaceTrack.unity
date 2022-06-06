@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2560,6 +2560,10 @@ PrefabInstance:
       value: Vehicle
       objectReference: {fileID: 0}
     - target: {fileID: 194810, guid: 09082afec7b5e824ca611a0cc3264bcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 194810, guid: 09082afec7b5e824ca611a0cc3264bcd, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -3654,6 +3658,8 @@ GameObject:
   - component: {fileID: 1091610095}
   - component: {fileID: 1091610096}
   - component: {fileID: 1091610097}
+  - component: {fileID: 1091610098}
+  - component: {fileID: 1091610099}
   m_Layer: 0
   m_Name: Text Manager
   m_TagString: Untagged
@@ -3715,6 +3721,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Message12: {fileID: 1422417005}
   messageText: {fileID: 1300660298}
+  pause: 0
+--- !u!114 &1091610098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091610094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63ca3ad09b2b7c439a1f4f483aac5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Message13: {fileID: 2134662503}
+  messageText: {fileID: 2095523779}
+  pause: 0
+--- !u!114 &1091610099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091610094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c8feb3b88629c49ac35c6c32c7d026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Message14: {fileID: 267486349}
+  messageText: {fileID: 938767870}
   pause: 0
 --- !u!1 &1102884355
 GameObject:
@@ -4098,9 +4134,9 @@ MonoBehaviour:
   trigger3: {fileID: 550142788}
   messager11: {fileID: 1068551786}
   messager12: {fileID: 1422417005}
-  messager13: {fileID: 0}
-  messager14: {fileID: 0}
-  messager15: {fileID: 0}
+  messager13: {fileID: 2134662503}
+  messager14: {fileID: 267486349}
+  messager15: {fileID: 1725529584}
   moving: 0
   OnGround: 0
   speed: 20

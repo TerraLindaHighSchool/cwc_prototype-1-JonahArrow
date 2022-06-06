@@ -25,9 +25,7 @@ public class Messages12 : MonoBehaviour
             {
             "You have failed, Player.",
             "You will now fall for the rest of eternity.",
-            "Just kidding, looks like I still have power here.",
-            "",
-            ""
+            "Just kidding, looks like I still have power here."
             };
 
             if (Message12.activeInHierarchy == true)
