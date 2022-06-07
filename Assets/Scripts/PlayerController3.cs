@@ -9,6 +9,9 @@ public class PlayerController3 : MonoBehaviour
 {
     public int coinCount = 0;
     public TextMeshProUGUI ending3;
+    public GameObject messager16;
+    public GameObject messager17;
+    public GameObject messager18;
     public GameObject Player;
     public GameObject Camera;
     public GameObject trigger3;
@@ -21,6 +24,7 @@ public class PlayerController3 : MonoBehaviour
     private bool Trigger = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
+    private bool CanMove = false;
     public int Count;
     public int Count2;
     public int Count3;
@@ -28,7 +32,8 @@ public class PlayerController3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Application.targetFrameRate = 30;
+        messager16.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -36,26 +41,43 @@ public class PlayerController3 : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+
+        if(CanMove == true)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        }
 
         if(Trigger2 == true)
         {
             Player.gameObject.transform.position = new Vector3(1000, 0, 0);
             Camera.gameObject.transform.rotation = new Quaternion(0, 90, 0, 0);
-            Count++;
+            messager18.gameObject.SetActive(true);
+            ending3.gameObject.SetActive(true);
+            Trigger2 = false;
             // Audio goes here
         }
 
         if(Trigger3 == true)
         {
             trigger3.gameObject.SetActive(false);
+            messager17.gameObject.SetActive(true);
             Door.gameObject.SetActive(true);
+            Trigger3 = false;
         }
 
-        if(Count == 1000)
+        if (messager16.activeInHierarchy == false)
         {
-            ending3.gameObject.SetActive(true);
+            CanMove = true;
+        }
+
+        if (messager18.activeInHierarchy == true)
+        {
+            Count++;
+            if(Count == 800)
+            {
+                loadlevel("Prototype 1");
+            }
         }
 
         IsMoving();
@@ -67,7 +89,7 @@ public class PlayerController3 : MonoBehaviour
     {
         if (Trigger == true)
         {
-            loadlevel("Ending");
+            loadlevel("Pong");
         }
     }
 

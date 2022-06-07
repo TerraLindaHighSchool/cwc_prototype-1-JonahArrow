@@ -41,49 +41,49 @@ public class Messages11 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 4)
+            if (pause == 1)
             {
                 string message11 = messageArray11[0];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 754)
+            if (pause == 201)
             {
                 string message11 = messageArray11[1];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 1504)
+            if (pause == 401)
             {
                 string message11 = messageArray11[2];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 3004)
+            if (pause == 601)
             {
                 string message11 = messageArray11[3];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 3754)
+            if (pause == 801)
             {
                 string message11 = messageArray11[4];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 5254)
+            if (pause == 1001)
             {
                 string message11 = messageArray11[5];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 6754)
+            if (pause == 1201)
             {
                 string message11 = messageArray11[6];
                 TextWriter.AddWriter_Static(messageText, message11, .05f, true);
             }
 
-            if (pause == 7754)
+            if (pause == 1401)
             {
                 Message11.gameObject.SetActive(false);
             }

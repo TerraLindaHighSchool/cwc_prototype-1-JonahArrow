@@ -23,7 +23,11 @@ public class Messages15 : MonoBehaviour
         {
             string[] messageArray15 = new string[]
             {
-            "Really?"
+            "Well done, you completed the race course.",
+            "Anyways, I did some research into the button that appeared in my game.",
+            "Someone deliberately put that button in my game without me knowing.",
+            "Alright time to bring you back.",
+            "What the-"
             };
 
             if (Message15.activeInHierarchy == true)
@@ -35,13 +39,37 @@ public class Messages15 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 4)
+            if (pause == 1)
             {
                 string message15 = messageArray15[0];
                 TextWriter.AddWriter_Static(messageText, message15, .05f, true);
             }
 
-            if (pause == 754)
+            if (pause == 201)
+            {
+                string message15 = messageArray15[1];
+                TextWriter.AddWriter_Static(messageText, message15, .05f, true);
+            }
+
+            if (pause == 401)
+            {
+                string message15 = messageArray15[2];
+                TextWriter.AddWriter_Static(messageText, message15, .05f, true);
+            }
+
+            if (pause == 601)
+            {
+                string message15 = messageArray15[3];
+                TextWriter.AddWriter_Static(messageText, message15, .05f, true);
+            }
+
+            if (pause == 801)
+            {
+                string message15 = messageArray15[4];
+                TextWriter.AddWriter_Static(messageText, message15, .05f, true);
+            }
+
+            if (pause == 1001)
             {
                 Message15.gameObject.SetActive(false);
             }

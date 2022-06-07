@@ -39,37 +39,37 @@ public class Messages8 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 7)
+            if (pause == 1)
             {
                 string message8 = messageArray8[0];
                 TextWriter.AddWriter_Static(messageText, message8, .05f, true);
             }
 
-            if (pause == 756)
+            if (pause == 201)
             {
                 string message8 = messageArray8[1];
                 TextWriter.AddWriter_Static(messageText, message8, .05f, true);
             }
 
-            if (pause == 1756)
+            if (pause == 401)
             {
                 string message8 = messageArray8[2];
                 TextWriter.AddWriter_Static(messageText, message8, .05f, true);
             }
 
-            if (pause == 3226)
+            if (pause == 601)
             {
                 string message8 = messageArray8[3];
                 TextWriter.AddWriter_Static(messageText, message8, .05f, true);
             }
 
-            if (pause == 4756)
+            if (pause == 801)
             {
                 string message8 = messageArray8[4];
                 TextWriter.AddWriter_Static(messageText, message8, .05f, true);
             }
 
-            if (pause >= 6256)
+            if (pause >= 1001)
             {
                 Message8.gameObject.SetActive(false);
             }

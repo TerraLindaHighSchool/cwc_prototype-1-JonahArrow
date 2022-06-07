@@ -48,11 +48,12 @@ public class PlayerController : MonoBehaviour
     private bool Fall2 = false;
     private bool Fall3 = false;
     private bool startMessage = true;
+    private bool CanMove = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Application.targetFrameRate = 30;
     }
 
     // Update is called once per frame
@@ -64,7 +65,6 @@ public class PlayerController : MonoBehaviour
             gameStart = true;
             if(startMessage == true)
             {
-                talking.Play();
                 messager.gameObject.SetActive(true);
             }
             startMessage = false;
@@ -75,62 +75,72 @@ public class PlayerController : MonoBehaviour
         }
         if (gameStart == true)
         {
-            // Movement transforms of player
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-            transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
             Camera.gameObject.SetActive(false);
         }
 
-        if(coinCount == 5)
+        if(CanMove == true)
+        {
+            // Movement transforms of player
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        } 
+        else
+        {
+
+        }
+
+        if(messager.activeInHierarchy == true)
+        {
+            CanMove = false;
+        }
+        else
+        {
+            CanMove = true;
+        }
+
+        if (coinCount == 5)
         {
             ending5.gameObject.SetActive(true);
         }
 
         if(Trigger1 == true)
         {
-            talking.Play();
             messager1.gameObject.SetActive(true);
             Trigger1 = false;
         }
 
         if(Trigger4 == true)
         {
-            talking.Play();
             messager2.gameObject.SetActive(true);
             Trigger4 = false;
         }
 
         if (Trigger5 == true)
         {
-            talking.Play();
             messager3.gameObject.SetActive(true);
             Trigger5 = false;
         }
 
         if (Trigger6 == true)
         {
-            talking.Play();
             messager4.gameObject.SetActive(true);
             Trigger6 = false;
         }
 
         if (Trigger7 == true)
         {
-            talking.Play();
             messager5.gameObject.SetActive(true);
             Trigger7 = false;
         }
 
         if (Trigger8 == true)
         {
-            talking.Play();
             messager8.gameObject.SetActive(true);
             Trigger8 = false;
         }
 
         if (Trigger9 == true)
         {
-            talking.Play();
             messager9.gameObject.SetActive(true);
             Trigger9 = false;
         }
@@ -266,11 +276,7 @@ public class PlayerController : MonoBehaviour
         {
             Count++;
             messager3.gameObject.SetActive(true);
-            if (Count == 6)
-            {
-                talking.Play();
-            }
-            if (Count >= 2506)
+            if (Count >= 601)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, -0.02876592f, 0);
@@ -284,11 +290,7 @@ public class PlayerController : MonoBehaviour
         {
             Count2++;
             messager6.gameObject.SetActive(true);
-            if (Count2 == 6)
-            {
-                talking.Play();
-            }
-            if (Count2 >= 3506)
+            if (Count2 >= 801)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, -0.02876592f, 0);
@@ -301,15 +303,10 @@ public class PlayerController : MonoBehaviour
         {
             Count3++;
             messager7.gameObject.SetActive(true);
-            if (Count3 == 6)
+            ending2.gameObject.SetActive(true);
+            if (Count3 >= 801)
             {
-                talking.Play();
-            }
-            if (Count3 >= 4000)
-            {
-                Trigger = false;
-                ending2.gameObject.SetActive(true);
-                Count3 = 0;
+                loadlevel("Prototype 1");
             }
         }
     }
@@ -327,7 +324,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Trigger3 == true)
         {
-            talking.Play();
             messager10.gameObject.SetActive(true);
             ending1.gameObject.SetActive(true);
         }

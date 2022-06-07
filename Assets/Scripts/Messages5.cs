@@ -50,103 +50,103 @@ public class Messages5 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 6)
+            if (pause == 1)
             {
                 string message5 = messageArray5[0];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 1506)
+            if (pause == 201)
             {
                 string message5 = messageArray5[1];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 3006)
+            if (pause == 401)
             {
                 string message5 = messageArray5[2];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 4506)
+            if (pause == 601)
             {
                 string message5 = messageArray5[3];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 6006)
+            if (pause == 801)
             {
                 string message5 = messageArray5[4];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 8006)
+            if (pause == 1001)
             {
                 string message5 = messageArray5[5];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 8756)
+            if (pause == 1201)
             {
                 string message5 = messageArray5[6];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 10256)
+            if (pause == 1401)
             {
                 string message5 = messageArray5[7];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 12256)
+            if (pause == 1601)
             {
                 string message5 = messageArray5[8];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 13756)
+            if (pause == 1801)
             {
                 string message5 = messageArray5[9];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 15256)
+            if (pause == 2001)
             {
                 string message5 = messageArray5[10];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 17256)
+            if (pause == 2201)
             {
                 string message5 = messageArray5[11];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 18006)
+            if (pause == 2401)
             {
                 string message5 = messageArray5[12];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 19006)
+            if (pause == 2601)
             {
                 string message5 = messageArray5[13];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 21006)
+            if (pause == 2801)
             {
                 string message5 = messageArray5[14];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 23006)
+            if (pause == 3001)
             {
                 string message5 = messageArray5[15];
                 TextWriter.AddWriter_Static(messageText, message5, .05f, true);
             }
 
-            if (pause == 25006)
+            if (pause == 3201)
             {
                 Message5.gameObject.SetActive(false);
             }

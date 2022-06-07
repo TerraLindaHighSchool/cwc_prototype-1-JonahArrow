@@ -24,17 +24,18 @@ public class PlayerController2 : MonoBehaviour
     private bool Fall2 = false;
     private bool Fall3 = false;
     private bool Trigger = false;
-    private bool Trigger1 = false;
     private bool Trigger2 = false;
     private bool Trigger3 = false;
     private bool CanMove = false;
     public int Count;
     public int Count2;
     public int Count3;
+    public int Count4;
 
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 30;
         messager11.gameObject.SetActive(true);
     }
 
@@ -47,8 +48,6 @@ public class PlayerController2 : MonoBehaviour
 
         MapFall();
 
-        NextLevel();
-
         if(CanMove == true)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
@@ -59,26 +58,23 @@ public class PlayerController2 : MonoBehaviour
         {
             CanMove = true;
         }
-        else if (messager15.activeInHierarchy == true)
+        if (messager15.activeInHierarchy == true)
         {
-            CanMove = false;
+            Count4++;
+            if(Count4 == 1000)
+            {
+                loadlevel("Choice");
+            }
         }
 
         if (Trigger2 == true)
         {
             trigger3.gameObject.SetActive(true);
         }
-    }
-    public void NextLevel()
-    {
+
         if (Trigger3 == true)
         {
-            loadlevel("Choice");
-        }
-
-        if (Trigger1 == true)
-        {
-            loadlevel("Pong");
+            messager15.gameObject.SetActive(true);
         }
     }
     public void loadlevel(string level)
@@ -145,10 +141,6 @@ public class PlayerController2 : MonoBehaviour
         {
             Trigger = true;
         }
-        if (other.gameObject.CompareTag("Trigger1"))
-        {
-            Trigger1 = true;
-        }
         if (other.gameObject.CompareTag("Trigger2"))
         {
             Trigger2 = true;
@@ -165,7 +157,7 @@ public class PlayerController2 : MonoBehaviour
         {
             Count++;
             messager12.gameObject.SetActive(true);
-            if (Count == 4004)
+            if (Count == 601)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 8, -10);
@@ -180,7 +172,7 @@ public class PlayerController2 : MonoBehaviour
         {
             Count2++;
             messager13.gameObject.SetActive(true);
-            if (Count2 == 2254)
+            if (Count2 == 601)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 8, -10);
@@ -194,7 +186,7 @@ public class PlayerController2 : MonoBehaviour
         {
             Count3++;
             messager14.gameObject.SetActive(true);
-            if (Count3 == 754)
+            if (Count3 == 201)
             {
                 Trigger = false;
                 gameObject.transform.position = new Vector3(0, 8, -10);

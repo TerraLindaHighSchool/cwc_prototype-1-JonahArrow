@@ -35,13 +35,13 @@ public class Messages14 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 4)
+            if (pause == 1)
             {
                 string message14 = messageArray14[0];
                 TextWriter.AddWriter_Static(messageText, message14, .05f, true);
             }
 
-            if (pause == 754)
+            if (pause == 201)
             {
                 Message14.gameObject.SetActive(false);
             }

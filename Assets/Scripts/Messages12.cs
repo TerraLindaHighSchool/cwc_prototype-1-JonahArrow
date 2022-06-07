@@ -37,25 +37,25 @@ public class Messages12 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 4)
+            if (pause == 1)
             {
                 string message12 = messageArray12[0];
                 TextWriter.AddWriter_Static(messageText, message12, .05f, true);
             }
 
-            if (pause == 1004)
+            if (pause == 201)
             {
                 string message12 = messageArray12[1];
                 TextWriter.AddWriter_Static(messageText, message12, .05f, true);
             }
 
-            if (pause == 2504)
+            if (pause == 401)
             {
                 string message12 = messageArray12[2];
                 TextWriter.AddWriter_Static(messageText, message12, .05f, true);
             }
 
-            if (pause == 4004)
+            if (pause == 601)
             {
                 Message12.gameObject.SetActive(false);
             }

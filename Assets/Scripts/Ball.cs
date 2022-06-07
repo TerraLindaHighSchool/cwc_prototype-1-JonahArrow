@@ -14,13 +14,18 @@ public class Ball : MonoBehaviour
     public GameObject Thing1;
     public GameObject Thing2;
     public GameObject Thing3;
+    public GameObject Ball1;
     public GameObject HP;
     public GameObject HP1;
     public GameObject HP2;
     public GameObject HP3;
     public GameObject Pong;
+    public GameObject Message20;
+    public GameObject Message21;
     public TextMeshProUGUI ending4;
     public TextMeshProUGUI ending5;
+    public int Count;
+    public int Count2;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +46,10 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trigger"))
         {
+            Message20.gameObject.SetActive(true);
             ending4.gameObject.SetActive(true);
             Pong.gameObject.SetActive(false);
+            Ball1.gameObject.SetActive(false);
             Things.gameObject.SetActive(false);
         }
         if (other.gameObject.CompareTag("Trigger1"))
@@ -69,8 +76,10 @@ public class Ball : MonoBehaviour
         if (other.gameObject.CompareTag("Trigger4"))
         {
             other.gameObject.SetActive(false);
+            Message21.gameObject.SetActive(true);
             ending5.gameObject.SetActive(true);
             HP3.gameObject.SetActive(false);
+            Ball1.gameObject.SetActive(false);
             Pong.gameObject.SetActive(false);
             boom.Play();
         }

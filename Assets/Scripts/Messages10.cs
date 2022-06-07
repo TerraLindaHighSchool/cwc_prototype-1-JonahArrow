@@ -39,31 +39,31 @@ public class Messages10 : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 4)
+            if (pause == 1)
             {
                 string message10 = messageArray10[0];
                 TextWriter.AddWriter_Static(messageText, message10, .05f, true);
             }
 
-            if (pause == 1004)
+            if (pause == 201)
             {
                 string message10 = messageArray10[1];
                 TextWriter.AddWriter_Static(messageText, message10, .05f, true);
             }
 
-            if (pause == 2004)
+            if (pause == 401)
             {
                 string message10 = messageArray10[2];
                 TextWriter.AddWriter_Static(messageText, message10, .05f, true);
             }
 
-            if (pause == 3504)
+            if (pause == 601)
             {
                 string message10 = messageArray10[3];
                 TextWriter.AddWriter_Static(messageText, message10, .05f, true);
             }
 
-            if (pause == 5004)
+            if (pause == 801)
             {
                 loadlevel("Prototype 1");
             }

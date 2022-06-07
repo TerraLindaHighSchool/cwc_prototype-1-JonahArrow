@@ -38,31 +38,31 @@ public class Messages : MonoBehaviour
                 pause = 0;
             }
 
-            if (pause == 5)
+            if (pause == 1)
             {
                 string message = messageArray[0];
                 TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
-            if (pause == 1005)
+            if (pause == 201)
             {
                 string message = messageArray[1];
                 TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
-            if (pause == 2005)
+            if (pause == 401)
             {
                 string message = messageArray[2];
                 TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
-            if (pause == 3005)
+            if (pause == 601)
             {
                 string message = messageArray[3];
                 TextWriter.AddWriter_Static(messageText, message, .05f, true);
             }
 
-            if (pause == 4005)
+            if (pause == 801)
             {
                 Message.gameObject.SetActive(false);
             }
